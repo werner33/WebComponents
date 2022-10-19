@@ -1,0 +1,16 @@
+.productCards {
+    max-width: 850px;
+    margin: 30px auto;
+    
+    &__title {
+        font-size: 30px;
+        font-weight: 600;
+        margin-bottom: 20px;
+    }
+
+    &__container {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        row-gap: 15px;
+    }
+}
