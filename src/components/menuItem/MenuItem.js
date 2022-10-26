@@ -4,9 +4,7 @@ import './MenuItem.scss';
 
 const MenuItem = ({text, ...props}) => {
 
-
-    const [displaySubMenu, setDisplaySubMenu] = useState(false);
-
+  const [displaySubMenu, setDisplaySubMenu] = useState(false);
 
   return (
     <li 

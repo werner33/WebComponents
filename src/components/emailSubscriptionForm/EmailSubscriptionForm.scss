@@ -1,17 +1,19 @@
+@import '../../styleResources/colors.scss';
+
 .emailSubscriptionForm {
     margin: 100px auto;
-    border: 1px solid orange;
+    border: 1px solid $primary;
     padding: 40px 25px;
     border-radius: 7px;
     width: 520px;
-    background-color: rgba(219, 145, 33, 0.15);
+    background-color: rgba(125, 132, 178, 0.15);
     text-align: center;
     font-family: arial;
   
     &__title {
       font-size: 24px;
       font-weight: 600;
-      color: #b07e31;
+      color: $primary;
       margin-bottom: 15px;
     }
   
@@ -29,7 +31,7 @@
       input {
         width: 100%;
         padding: 15px;
-        border: orange 1px solid;
+        border: $primary 1px solid;
         border-radius: 3px;
       }
     }
@@ -42,10 +44,10 @@
       border-radius: 3px;
       font-size: 1.1em;
       text-decoration: uppercase;
-      background: rgb(199, 125, 34);
+      background: $primary;
       background: linear-gradient(
-        rgba(255, 141, 0, 1) 0%,
-        rgba(199, 125, 34, 1) 100%
+        rgba(143, 166, 203, 1) 0%,
+        rgba(125, 132, 178, 1) 100%
       );
     }
   }

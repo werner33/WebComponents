@@ -1,5 +1,9 @@
+@import '../../styleResources/colors.scss';
+
 .navbar {
-    background-color: #fcfcfc;
+    background-color: $primary;
+    color: white;
+    
     height: 75px;
     padding: 0 30px;
   
@@ -16,10 +20,51 @@
       padding: 7.5px 0;
       cursor: pointer;
     }
+
+    &__hamburger, &__mobileMenu {
+      display: none;  
+    }
   
     &__itemLinks {
       list-style: none;
       line-height: 43px;
       cursor: pointer;
+    }
+  }
+
+
+  @media screen and (max-width: 440px) {
+    .navbar {
+
+      padding: 0 10px;
+      
+      &__itemLinks {
+        display: none;
+      }
+
+      &__hamburger {
+        display: block;  
+        padding: 12.5px 5px;
+      }
+
+      &__mobileMenu {
+        display: block;
+        padding: 10px 15px;
+        width: 150px;
+        position: absolute;
+        top: 74px;
+        transition: right .65s ease;
+        // right: -181px;
+        // 181
+        background-color: $primary;
+        border-bottom-left-radius: 10px;
+         > * {
+          display: block;
+          padding-bottom: 8px;
+          font-weight: 600;
+         }
+      }
+
+      
     }
   }

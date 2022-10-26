@@ -1,0 +1,45 @@
+@import '../../styleResources/colors.scss';
+
+.articleContainer {
+    border: 1px #ccc solid;
+    width: 300px;
+    
+    &__title {
+      text-transform: uppercase;
+      padding: 15px 20px;
+      border-bottom: 1px #ccc solid;
+      font-weight: 600;
+      font-size: 13px;
+      .red-circle {
+        border: 2px $primary solid;
+        height: 8px;
+        width: 8px;
+        border-radius: 50%;
+        display: inline-block;
+        margin-right: 5px;
+      }
+    }
+    
+    &__list {
+      padding: 20px;
+      
+      .article {
+        display: grid;
+        grid-template-columns: 1fr 8fr;
+        padding-top: 10px;
+        &:not(:last-child){
+          border-bottom: 1px #ccc solid;
+          padding-bottom: 10px;
+        }
+        
+        
+        &__number {
+          color: $primary;
+        }
+        
+        &__title {
+          font-weight: 600;
+        }
+      }
+    } 
+  }

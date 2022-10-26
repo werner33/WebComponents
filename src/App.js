@@ -1,10 +1,12 @@
 
+import SplitScreen from './layouts/splitScreen/SplitScreen';
+
 import Navbar from './components/navbar/Navbar';
 import EmailSubscriptionForm from './components/emailSubscriptionForm/EmailSupscriptionForm';
 import ProductCards from './components/productCards/ProductCards';
+import ArticleContainer from './components/articleContainer/ArticleContainer';
 
 import './App.css';
-
 
 
 function App() {
@@ -12,8 +14,11 @@ function App() {
   return (
     <div className="App">
       <Navbar />
-      <ProductCards title="Awesome Products" />
-      <EmailSubscriptionForm />
+      {/* <SplitScreen>
+        <ProductCards title="Awesome Products" />
+        <ArticleContainer />
+      </SplitScreen>
+      <EmailSubscriptionForm /> */}
     </div>
   );
 }

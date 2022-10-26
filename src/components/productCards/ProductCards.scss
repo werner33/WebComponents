@@ -1,6 +1,6 @@
 .productCards {
     max-width: 850px;
-    margin: 30px auto;
+    margin: 0 auto;
     
     &__title {
         font-size: 30px;
@@ -11,6 +11,6 @@
     &__container {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
-        row-gap: 15px;
+        gap: 15px;
     }
 }
