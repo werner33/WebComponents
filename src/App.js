@@ -14,11 +14,11 @@ function App() {
   return (
     <div className="App">
       <Navbar />
-      {/* <SplitScreen>
+       <SplitScreen>
         <ProductCards title="Awesome Products" />
         <ArticleContainer />
       </SplitScreen>
-      <EmailSubscriptionForm /> */}
+      <EmailSubscriptionForm />
     </div>
   );
 }

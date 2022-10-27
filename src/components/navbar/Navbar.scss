@@ -54,8 +54,6 @@
         position: absolute;
         top: 74px;
         transition: right .65s ease;
-        // right: -181px;
-        // 181
         background-color: $primary;
         border-bottom-left-radius: 10px;
          > * {
@@ -64,7 +62,5 @@
           font-weight: 600;
          }
       }
-
-      
     }
   }
