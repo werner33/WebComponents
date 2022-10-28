@@ -5,4 +5,10 @@
     &:not(:last-child) {
       margin-right: 20px;
     }
+
+    .downArrowIcon {
+      position: relative;
+      top: 6px;
+      left: -5px;
+    }
   }
