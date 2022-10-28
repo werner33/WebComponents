@@ -51,8 +51,8 @@
         display: block;
         padding: 10px 15px;
         width: 150px;
-        position: absolute;
-        top: 74px;
+        position: fixed;
+        top: 68px;
         transition: right .65s ease;
         background-color: $primary;
         border-bottom-left-radius: 10px;

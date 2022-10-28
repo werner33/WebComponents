@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
-
+import Button from '@mui/material/Button';
 
 import MenuItem from '../menuItem/MenuItem';
 import MobileMenuItem from '../mobileMenuItem/MobileMenuItem';
@@ -44,12 +44,10 @@ const Navbar = () => {
             </div>
             <div className="navbar__mobileMenu"  style={{'right' : toggleMenu ? '0px' : '-181px'}}>
               <MobileMenuItem text="Resources">
-                  <div className="">
-                    <div className="submenuItem">High School</div>
-                    <div className="submenuItem">College</div>
-                    <div className="submenuItem">Continued Learning</div>
-                    <div className="submenuItem">Add Resource</div>
-                  </div>
+                <div className="submenuItem">High School</div>
+                <div className="submenuItem">College</div>
+                <div className="submenuItem">Continued Learning</div>
+                <div className="submenuItem">Add Resource</div>
               </MobileMenuItem>
               <MenuItem text="About" />
               <MenuItem text="Mentors" />
@@ -61,7 +59,8 @@ const Navbar = () => {
                 </MenuItem>
                 <MenuItem text="About" />
                 <MenuItem text="Mentors" />
-                <MenuItem text="Log In" />
+                <Button variant="contained">Log In</Button>
+
             </ul>
             </div>
         </div>

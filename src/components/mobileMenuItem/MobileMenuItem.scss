@@ -8,4 +8,15 @@
         font-weight: 300;
         padding: 10px;
     }
+
+    .mobileSubmenu {
+        max-height: 0;
+        overflow-y: hidden;
+        transition: max-height .65s ease-out;
+        &--active {
+            max-height: 500px;
+            transition: max-height .65s ease-in;
+
+        }
+    }
 }

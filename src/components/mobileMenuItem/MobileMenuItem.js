@@ -14,7 +14,9 @@ const MobileMenuItem = ({text, ...props}) => {
             onClick={() => setDisplaySubMenu(!displaySubMenu)}
         >
             {text} {props.children &&  <ArrowDropDownIcon className="downArrowIcon" size="small"/>}
-            {displaySubMenu && props.children}
+            <div className={displaySubMenu ? "mobileSubmenu mobileSubmenu--active" : "mobileSubmenu"}>
+                {props.children}
+            </div>
         </li>
       )
 }
