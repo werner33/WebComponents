@@ -5,6 +5,7 @@ import Navbar from './components/navbar/Navbar';
 import EmailSubscriptionForm from './components/emailSubscriptionForm/EmailSupscriptionForm';
 import ProductCards from './components/productCards/ProductCards';
 import ArticleContainer from './components/articleContainer/ArticleContainer';
+import ItemsInCart from './components/itemsInCard/ItemsInCart';
 
 import './App.css';
 
@@ -14,6 +15,7 @@ function App() {
   return (
     <div className="App">
       <Navbar />
+        <ItemsInCart />
        <SplitScreen>
         <ProductCards title="Awesome Products" />
         <ArticleContainer />

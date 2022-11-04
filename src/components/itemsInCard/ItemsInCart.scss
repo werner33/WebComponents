@@ -1,0 +1,32 @@
+@import '../../styleResources/colors.scss';
+
+.itemsInCart {
+    margin-top: 40px;
+
+    &__table {
+      width: 800px;
+      margin: 0 auto;
+      border-collapse: collapse;
+  
+      tr th {
+        background-color: $secondary;
+        padding: 5px;
+        color: white;
+      }
+  
+      tr th,
+      tr td {
+        text-align: left;
+        &:last-child {
+          text-align: right;
+        }
+      }
+    }
+    
+    tr td {
+      height: 130px;
+      align-items: top;
+      vertical-align: top;
+      padding: 15px 0;
+    }
+  }

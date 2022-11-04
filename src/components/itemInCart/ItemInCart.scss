@@ -1,0 +1,30 @@
+.itemInCart {
+    &__productInfo {
+        display: flex;
+        gap: 30px;
+      }
+      
+      &__productTitle, &__productImage {
+        cursor: pointer;
+      }
+    
+      &__productRemove {
+        position: relative;
+        bottom: -80px;
+        cursor: pointer;
+      }
+    
+      &__productQty {
+        input {
+          width: 40px;
+          padding: 10px;
+          font-size: 1.2em;
+          outline: none;
+          text-align: center;
+          border: 1px solid black;
+          &:focus {
+            border: 2px solid black;
+          }
+        }
+      }
+}
