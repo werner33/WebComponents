@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import { Link } from 'react-router-dom';
 
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
@@ -12,17 +13,18 @@ import SubMenu from '../subMenu/SubMenu';
 import './Navbar.scss';
 
 
-const Navbar = () => {
-
+const Navbar = ({setOpenLoginModal}) => {
 
   const [toggleMenu, setToggleMenu] = useState(false);
 
   return (
     <div className="navbar">
         <div className="navbar__items">
-            <div className="navbar__logo">
-            <img src="/eduk_logo.png" alt="eduk logo of building and statue of liberty" />
-            </div>
+            <Link to="/">
+              <div className="navbar__logo">
+                <img src="/eduk_logo.png" alt="eduk logo of building and statue of liberty" />
+              </div>
+            </Link>
 
             <div className="navbar__left">
             <div 
@@ -43,23 +45,25 @@ const Navbar = () => {
               />}
             </div>
             <div className="navbar__mobileMenu"  style={{'right' : toggleMenu ? '0px' : '-181px'}}>
-              <MobileMenuItem text="Resources">
+              <MobileMenuItem text="Resources" path="resources">
                 <div className="submenuItem">High School</div>
                 <div className="submenuItem">College</div>
                 <div className="submenuItem">Continued Learning</div>
                 <div className="submenuItem">Add Resource</div>
               </MobileMenuItem>
-              <MenuItem text="About" />
-              <MenuItem text="Mentors" />
-              <MenuItem text="Log In" />
+              <MenuItem text="Stopwatch" path="stopwatch" />
+              <MenuItem text="About" path="about"/>
+              <MenuItem text="Cart" path="cart"/>
+              <MenuItem text="Log In"/>
             </div>
             <ul className="navbar__itemLinks">
-                <MenuItem text="Resources">
+                <MenuItem text="Resources" path="resources">
                     <SubMenu />
                 </MenuItem>
-                <MenuItem text="About" />
-                <MenuItem text="Mentors" />
-                <Button variant="contained">Log In</Button>
+                <MenuItem text="Stopwatch" path="stopwatch" />
+                <MenuItem text="About" path="about" />
+                <MenuItem text="Cart" path="cart" />
+                <Button variant="contained" onClick={() => setOpenLoginModal(true)}>Log In</Button>
 
             </ul>
             </div>

@@ -1,0 +1,29 @@
+@import '../../styleResources/colors.scss';
+
+.cartSummary {
+    width: 350px;
+
+    &__header {
+        background-color: $secondary;
+        color: white;
+        padding: 5px;
+        font-weight: 600;
+        margin-bottom: 20px;
+    }
+
+    &__subtotal, &__shipping, &__tax, &__total {
+      display: flex;
+      justify-content: space-between;
+      padding-bottom: 12px;
+    }
+    
+    &__shipping, &__tax {
+      font-size: .9em;
+    }
+    
+    &__total {
+      padding-top: 12px;
+      border-top: 1px solid gray;
+      font-size: 1.1em;
+    }
+  }

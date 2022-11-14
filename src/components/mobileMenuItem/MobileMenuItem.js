@@ -4,7 +4,7 @@ import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 
 import './MobileMenuItem.scss';
 
-const MobileMenuItem = ({text, ...props}) => {
+const MobileMenuItem = ({text, children}) => {
     
     const [displaySubMenu, setDisplaySubMenu] = useState(false);
 
@@ -13,9 +13,9 @@ const MobileMenuItem = ({text, ...props}) => {
             className="mobileMenuItem"
             onClick={() => setDisplaySubMenu(!displaySubMenu)}
         >
-            {text} {props.children &&  <ArrowDropDownIcon className="downArrowIcon" size="small"/>}
+            {text} {children &&  <ArrowDropDownIcon className="downArrowIcon" size="small"/>}
             <div className={displaySubMenu ? "mobileSubmenu mobileSubmenu--active" : "mobileSubmenu"}>
-                {props.children}
+                {children}
             </div>
         </li>
       )

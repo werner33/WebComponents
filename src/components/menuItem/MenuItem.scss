@@ -2,6 +2,12 @@
     display: inline-block;
     position: relative;
     line-height: 33px;
+    
+    a {
+      text-decoration: none;
+      color: white;
+    }
+
     &:not(:last-child) {
       margin-right: 20px;
     }

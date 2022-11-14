@@ -25,21 +25,21 @@
       margin: 10px 0;
     }
     
-    &__addToCart {
-        background-color: $primary;
-        color: white;
-        text-transform: uppercase;
-        text-align: center;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: .8em;
-        height: 40px;
+    // &__addToCart {
+    //     background-color: $primary;
+    //     color: white;
+    //     text-transform: uppercase;
+    //     text-align: center;
+    //     display: flex;
+    //     align-items: center;
+    //     justify-content: center;
+    //     font-size: .8em;
+    //     height: 40px;
         
-        &:hover {
-          background-color: $secondary;
-        }
-    }
+    //     &:hover {
+    //       background-color: $secondary;
+    //     }
+    // }
 
     .loader {
         -webkit-animation:spin 1.5s linear infinite;

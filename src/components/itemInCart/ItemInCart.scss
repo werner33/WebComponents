@@ -15,6 +15,7 @@
       }
     
       &__productQty {
+        position: absolute;
         input {
           width: 40px;
           padding: 10px;
@@ -26,5 +27,30 @@
             border: 2px solid black;
           }
         }
+      }
+
+      &__qtyError {
+        border: 1px black solid;
+        position: relative;
+        top: 16px;
+        right: 75px;
+        width: 200px;
+        padding: 8px;
+        font-weight: 600;
+        line-height: 1.1em;
+       
+
+        // &:before {
+        //   content: "";
+        //   position: relative;
+        //   left: 85px;
+        //   top: -40px;
+        //   width: 0;
+        //   height: 0;
+        //   border-left: 15px solid transparent;
+        //   border-right: 15px solid transparent;
+        //   border-bottom: 15px solid #fff;
+         
+        // }
       }
 }

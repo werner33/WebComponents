@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 
-import LoopIcon from '@mui/icons-material/Loop';
+// import LoopIcon from '@mui/icons-material/Loop';
+import Button from '../button/Button';
 
 import './ProductCard.scss';
 
@@ -9,6 +10,7 @@ const ProductCard  = ({product}) => {
     const {id, title, price, inCart} = product;
 
     const [loading, setLoading] = useState(false);
+    const [buttonText, setButtonText] = useState('Add to Cart');
     const [itemInCart, setItemInCart] = useState(false)
     const formattedPrice = `$${price}.00`;
 
@@ -16,6 +18,7 @@ const ProductCard  = ({product}) => {
         if(inCart){
             return;
         } else {
+            setButtonText('Item In Cart')
             setLoading(true);
             setTimeout(function(){ setItemInCart(true); setLoading(false)}, 500)
         }
@@ -35,15 +38,7 @@ const ProductCard  = ({product}) => {
                 </div>
                 <div className="productCard__price">{formattedPrice}</div>
                 </div>
-            <div 
-                className="productCard__addToCart"
-                onClick={handleAddToCart}
-                id={id}
-            >
-                {!itemInCart && !loading && 'Add To Cart'}
-                {!itemInCart && loading && <LoopIcon className="loader" fontSize='small' />}
-                {itemInCart && 'View Cart'}
-            </div> 
+           <Button text={buttonText} loading={loading} handleclick={handleAddToCart} />
         </div>
     )
 }
