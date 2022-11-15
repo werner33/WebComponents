@@ -17,7 +17,7 @@ export class Stopwatch {
     stop () {
       if(!this.startTime){
         this.stopTime = null;
-      } else {
+      } else if (!this.stopTime) {
         this.stopTime = Date.now();
       }
     }

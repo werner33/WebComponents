@@ -11,7 +11,7 @@ let stopwatch = new Stopwatch();
 const StopwatchDisplay = () => {
 
   const [elapsedTime, setElapsedTime] = useState(0);
-  const [intervalId, setIntervalId] = useState(null);
+  let intervalId;
 
   const startTime = () => {
     stopwatch.start();
@@ -20,17 +20,17 @@ const StopwatchDisplay = () => {
       setElapsedTime(stopwatch.getElapsedTime())
     }, 100)
 
-    setIntervalId(intervalInstance);
+    intervalId = intervalInstance
   }
   
   const stopTime = () => {
     stopwatch.stop();
     clearInterval(intervalId);
-    setIntervalId(null)
+    intervalId = null;
   }
 
   const resetTime = () => {
-    clearInterval(intervalId);
+    intervalId = null;
     stopwatch.reset();
     setElapsedTime(stopwatch.getElapsedTime())
   }
