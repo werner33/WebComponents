@@ -6,22 +6,55 @@ import Box from '@mui/material/Box';
 
 import Button from '../button/Button';
 
-const LoginAccountForm = () => {
+const LoginAccountForm = ({setOpenLoginModal, setLoggedIn}) => {
 
-    const [email, setEmail] = useState('');
-    const [emailError, setEmailError] = useState(false);
+    const [username, setUsername] = useState('');
+    const [usernameError, setUsernameError] = useState(false);
     const [password, setPassword] = useState('');
 
-    const validateEmail = () => {
-        if(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)){
-        setEmailError(false); 
+    // on unfocus validate username
+    const validateUsername = () => {
+        if(username.length <  4){
+            setUsernameError(true);
         } else {
-            setEmailError(true);
+            setUsernameError(false);
         }
     }
 
     const logInUser = () => {
-    // handle login
+
+        const reqOptions = {
+            method: 'POST', 
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                username, 
+                password
+            })
+        }
+     
+
+        fetch('http://localhost:9000/users/login', reqOptions)
+        .then(response => response.json())
+        .then(data => {
+
+            console.log(data);
+            // save token to local storage
+            // set loggedin to true 
+            // show toast that use has logged in
+            setUsername('');
+            setPassword('');
+            setOpenLoginModal(false);
+
+            // show toast that user was successfully created 
+
+            localStorage.setItem('accessToken', data.accessToken);
+            setLoggedIn(true);
+            
+        }).catch(error => {
+            console.log(error);
+        })
     }
 
     return (
@@ -38,14 +71,14 @@ const LoginAccountForm = () => {
             </Typography>
             <TextField 
                 id="outlined-basic" 
-                label="Email" 
+                label="Username" 
                 variant="outlined" 
                 required
-                onChange={(e) => setEmail(e.target.value)}
-                value={email}
-                onBlur={validateEmail}
-                error={emailError}
-                helperText={emailError &&  "Please enter a valid email."}
+                onChange={(e) => setUsername(e.target.value)}
+                value={username}
+                onBlur={validateUsername}
+                error={usernameError}
+                helperText={usernameError && "Username must be at least 4 characters long."}
             />
             <TextField 
                 id="outlined-basic" 

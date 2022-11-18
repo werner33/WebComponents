@@ -17,8 +17,9 @@ const CreateAccountForm = ({setOpenLoginModal, setLoggedIn}) => {
     const [emailError, setEmailError] = useState(false);
     const [password, setPassword] = useState('');
   
-      // on unfocus validate username
-    const validateUsername = () => {
+ 
+     // on unfocus validate username
+     const validateUsername = () => {
         if(username.length <  4){
             setUsernameError(true);
         } else {
