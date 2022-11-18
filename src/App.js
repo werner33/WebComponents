@@ -25,12 +25,13 @@ import './App.css';
 function App() {
 
   const [openLoginModal, setOpenLoginModal] = useState(false);
+  const [loggedIn, setLoggedIn] = useState(localStorage.getItem('accessToken') ? true : false);
 
   return (
     <Router>
       <div className="App">
-        <Navbar setOpenLoginModal={setOpenLoginModal} />
-        <LoginModal openLoginModal={openLoginModal} setOpenLoginModal={setOpenLoginModal} />
+        <Navbar setOpenLoginModal={setOpenLoginModal} loggedIn={loggedIn} setLoggedIn={setLoggedIn} />
+        <LoginModal openLoginModal={openLoginModal} setOpenLoginModal={setOpenLoginModal} setLoggedIn={setLoggedIn}/>
         <Routes>
           <Route path="/cart" element={<Cart />} />
           <Route path="/stopwatch" element={<StopwatchDisplay />} />

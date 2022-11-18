@@ -13,9 +13,16 @@ import SubMenu from '../subMenu/SubMenu';
 import './Navbar.scss';
 
 
-const Navbar = ({setOpenLoginModal}) => {
+const Navbar = ({setOpenLoginModal, loggedIn, setLoggedIn}) => {
 
   const [toggleMenu, setToggleMenu] = useState(false);
+
+  const logOut = () => {
+    // delete access token from local storage
+
+    localStorage.removeItem('accessToken');
+    setLoggedIn(false);
+  }
 
   return (
     <div className="navbar">
@@ -63,7 +70,8 @@ const Navbar = ({setOpenLoginModal}) => {
                 <MenuItem text="Stopwatch" path="stopwatch" />
                 <MenuItem text="About" path="about" />
                 <MenuItem text="Cart" path="cart" />
-                <Button variant="contained" onClick={() => setOpenLoginModal(true)}>Log In</Button>
+                {loggedIn && <Button variant="contained" onClick={logOut}>Log Out</Button> }
+                {!loggedIn && <Button variant="contained" onClick={() => setOpenLoginModal(true)}>Log In</Button>}
 
             </ul>
             </div>
