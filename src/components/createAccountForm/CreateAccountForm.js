@@ -7,6 +7,7 @@ import Box from '@mui/material/Box';
 import Button from '../button/Button';
 
 import './CreateAccountForm.scss';
+import { getStaticContextFromError } from '@remix-run/router';
 
 const CreateAccountForm = ({setOpenLoginModal, setLoggedIn}) => {
 
@@ -16,6 +17,7 @@ const CreateAccountForm = ({setOpenLoginModal, setLoggedIn}) => {
     const [email, setEmail] = useState('');
     const [emailError, setEmailError] = useState(false);
     const [password, setPassword] = useState('');
+    const [formMessage, setFormMessage] = useState('');
   
  
      // on unfocus validate username
@@ -53,16 +55,25 @@ const CreateAccountForm = ({setOpenLoginModal, setLoggedIn}) => {
         fetch('http://localhost:9000/users', reqOptions)
         .then(response => response.json())
         .then(data => {
-            
-            setEmail('');
-            setUsername('');
-            setPassword('');
-            setOpenLoginModal(false);
-
-            // show toast that user was successfully created 
-
-            localStorage.setItem('accessToken', data.accessToken);
-            setLoggedIn(true);
+            if(data.status === 'error'){
+                // set form info to show message
+                if(data.message.includes('users_username_key')){
+                    setFormMessage('Please choose another username. This one is already taken.');
+                } else if (data.message.includes('users_email_key')){
+                    setFormMessage('Please choose another email. This one is already taken.');
+                }
+               
+            } else {
+                setEmail('');
+                setUsername('');
+                setPassword('');
+                setOpenLoginModal(false);
+    
+                // show toast that user was successfully created 
+    
+                localStorage.setItem('accessToken', data.accessToken);
+                setLoggedIn(true);
+            }
         }).catch(error => {
             // handle error
             console.error(error);
@@ -81,6 +92,11 @@ const CreateAccountForm = ({setOpenLoginModal, setLoggedIn}) => {
         <Typography className="loginModal__title" id="modal-modal-title" variant="h6" component="h2">
             Please Create an Account
         </Typography>
+        {formMessage && 
+            <div className="form__errorText" style={{"color" : "red"}}>
+                {formMessage}
+            </div>
+        }
         <TextField 
             id="outlined-basic" 
             label="Username" 

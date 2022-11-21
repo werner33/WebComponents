@@ -39,7 +39,6 @@ const LoginAccountForm = ({setOpenLoginModal, setLoggedIn}) => {
         .then(response => response.json())
         .then(data => {
 
-            console.log(data);
             // save token to local storage
             // set loggedin to true 
             // show toast that use has logged in

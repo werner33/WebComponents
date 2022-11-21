@@ -13,7 +13,7 @@ import LoginAccountForm from "../loginAccountForm/LoginAccountForm";
 
 import './LoginModal.scss';
 
-function TabPanel(props: TabPanelProps) {
+function TabPanel(props) {
     const { children, value, index, ...other } = props;
   
     return (
@@ -32,7 +32,7 @@ function TabPanel(props: TabPanelProps) {
   }
 
 
-function a11yProps(index: number) {
+function a11yProps(index) {
     return {
       id: `simple-tab-${index}`,
       'aria-controls': `simple-tabpanel-${index}`,
@@ -80,18 +80,16 @@ const LoginModal = ({openLoginModal, setOpenLoginModal, setLoggedIn, ...props}) 
                 noValidate
                 autoComplete="off"
             >
-                {/* <Box sx={{ borderBottom: 1, borderColor: 'divider' }}> */}
-                    <Tabs value={value} onChange={handleChange} aria-label="Log in and create account tabs">
-                        <Tab label="Log In"  {...a11yProps(0)} />
-                        <Tab label="Create Account" {...a11yProps(1)} />
-                    </Tabs>
-                    <TabPanel value={value} index={0}>
-                        <LoginAccountForm setOpenLoginModal={setOpenLoginModal} setLoggedIn={setLoggedIn}/>
-                    </TabPanel>
-                    <TabPanel value={value} index={1}>
-                        <CreateAccountForm setOpenLoginModal={setOpenLoginModal} setLoggedIn={setLoggedIn} />
-                    </TabPanel>
-                {/* </Box> */}
+                  <Tabs value={value} onChange={handleChange} aria-label="Log in and create account tabs">
+                      <Tab label="Log In"  {...a11yProps(0)} />
+                      <Tab label="Create Account" {...a11yProps(1)} />
+                  </Tabs>
+                  <TabPanel value={value} index={0}>
+                      <LoginAccountForm setOpenLoginModal={setOpenLoginModal} setLoggedIn={setLoggedIn}/>
+                  </TabPanel>
+                  <TabPanel value={value} index={1}>
+                      <CreateAccountForm setOpenLoginModal={setOpenLoginModal} setLoggedIn={setLoggedIn} />
+                  </TabPanel>
             </Stack>
         </Modal>
      
