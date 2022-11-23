@@ -39,16 +39,17 @@ const LoginAccountForm = ({setOpenLoginModal, setLoggedIn}) => {
         .then(response => response.json())
         .then(data => {
 
-            // save token to local storage
-            // set loggedin to true 
-            // show toast that use has logged in
             setUsername('');
             setPassword('');
             setOpenLoginModal(false);
-
-            // show toast that user was successfully created 
-
+            
+            // show toast that user was successfully logged in
+            // TODO 
+            
+            // save token to local storage
             localStorage.setItem('accessToken', data.accessToken);
+
+            // set loggedin to true 
             setLoggedIn(true);
             
         }).catch(error => {

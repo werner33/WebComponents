@@ -1,4 +1,5 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
+import {useNavigate} from 'react-router-dom';
 
 import { Stopwatch } from '../../classes/stopwatch/Stopwatch';
 
@@ -9,6 +10,31 @@ import './StopwatchDisplay.scss';
 let stopwatch = new Stopwatch();
 
 const StopwatchDisplay = () => {
+
+  let navigate = useNavigate();
+
+  useEffect(() => {
+
+    const requestOptions = {
+      headers: {'Authorization': `Bearer ${localStorage.getItem('accessToken')}`}
+    }
+
+    fetch('http://localhost:9000/users/authenticate', requestOptions)
+    .then(response => response.json())
+    .then(data => {
+      if(data.error){
+        navigate('/');
+      } else {
+        alert('youre logged in');
+      }
+    }).catch(error => {
+      console.log(error);
+      navigate('/')
+    })
+
+
+  }, [])
+
 
   const [elapsedTime, setElapsedTime] = useState(0);
   let intervalId;

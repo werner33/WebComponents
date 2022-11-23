@@ -7,7 +7,6 @@ import Box from '@mui/material/Box';
 import Button from '../button/Button';
 
 import './CreateAccountForm.scss';
-import { getStaticContextFromError } from '@remix-run/router';
 
 const CreateAccountForm = ({setOpenLoginModal, setLoggedIn}) => {
 
