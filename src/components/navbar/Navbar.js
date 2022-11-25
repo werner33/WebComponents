@@ -19,7 +19,6 @@ const Navbar = ({setOpenLoginModal, loggedIn, setLoggedIn}) => {
 
   const logOut = () => {
     // delete access token from local storage
-
     localStorage.removeItem('accessToken');
     setLoggedIn(false);
   }

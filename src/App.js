@@ -14,7 +14,7 @@ import ProductCards from './components/productCards/ProductCards';
 import ArticleContainer from './components/articleContainer/ArticleContainer';
 import StopwatchDisplay from "./components/stopwatchDisplay/StopwatchDisplay";
 import LoginModal from "./components/loginModal/LoginModal";
-
+import AccountList from "./components/accountList/AccountList";
 //PAGES
 
 import Cart from "./pages/Cart";
@@ -34,6 +34,7 @@ function App() {
         <LoginModal openLoginModal={openLoginModal} setOpenLoginModal={setOpenLoginModal} setLoggedIn={setLoggedIn}/>
         <Routes>
           <Route path="/cart" element={<Cart />} />
+          <Route path="/accounts" element={<AccountList />} /> 
           <Route path="/stopwatch" element={<StopwatchDisplay />} />
           <Route path="/" element={
             <SplitScreen>

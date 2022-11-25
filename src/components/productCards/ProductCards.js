@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
 
+import {getCookie} from '../../utils/cookieUtils.js';
 import ProductCard from '../productCard/ProductCard';
 
 import './ProductCards.scss';
@@ -20,14 +21,25 @@ const ProductCards  = ({title}) => {
 
     //fetch product data from backend 
 
+    let accessToken = getCookie('accessToken');
+
+    const requestOptions = {
+        headers: {'Authorization': `Bearer ${accessToken}`}
+    }
+
     useEffect(() => {
 
         const url = 'http://localhost:9000/products';
 
-        fetch(url)
+        fetch(url, requestOptions)
         .then(response => response.json())
         .then(data => {
-            setProducts(data.products);
+
+            if(data.error){
+                console.log(data.error)
+            } else {
+                setProducts(data.products);
+            }
         });
     }, [])
 

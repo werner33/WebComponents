@@ -70,7 +70,8 @@ const CreateAccountForm = ({setOpenLoginModal, setLoggedIn}) => {
     
                 // show toast that user was successfully created 
     
-                localStorage.setItem('accessToken', data.accessToken);
+                // localStorage.setItem('accessToken', data.accessToken);
+                document.cookie = "accessToken=" + data.accessToken;
                 setLoggedIn(true);
             }
         }).catch(error => {
