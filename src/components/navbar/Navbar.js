@@ -18,8 +18,10 @@ const Navbar = ({setOpenLoginModal, loggedIn, setLoggedIn}) => {
   const [toggleMenu, setToggleMenu] = useState(false);
 
   const logOut = () => {
-    // delete access token from local storage
-    localStorage.removeItem('accessToken');
+
+    // delete cookie 'accessToken'
+    document.cookie = "accessToken=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+
     setLoggedIn(false);
   }
 

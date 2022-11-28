@@ -7,8 +7,9 @@ import Box from '@mui/material/Box';
 import Button from '../button/Button';
 
 import './CreateAccountForm.scss';
+import { createGrid } from '@mui/system';
 
-const CreateAccountForm = ({setOpenLoginModal, setLoggedIn}) => {
+const CreateAccountForm = ({setOpenLoginModal, setLoggedIn, setLoginMessage}) => {
 
 
     const [username, setUsername] = useState('');
@@ -60,6 +61,8 @@ const CreateAccountForm = ({setOpenLoginModal, setLoggedIn}) => {
                     setFormMessage('Please choose another username. This one is already taken.');
                 } else if (data.message.includes('users_email_key')){
                     setFormMessage('Please choose another email. This one is already taken.');
+                } else if (data.message.includes('Password must be')){
+                    setFormMessage(data.message);
                 }
                
             } else {
@@ -67,11 +70,13 @@ const CreateAccountForm = ({setOpenLoginModal, setLoggedIn}) => {
                 setUsername('');
                 setPassword('');
                 setOpenLoginModal(false);
+                setLoginMessage('You\'re account has been created.')
     
                 // show toast that user was successfully created 
-    
-                // localStorage.setItem('accessToken', data.accessToken);
+                
+                // save access token as a cookie
                 document.cookie = "accessToken=" + data.accessToken;
+                
                 setLoggedIn(true);
             }
         }).catch(error => {

@@ -14,4 +14,12 @@ function getCookie(cname) {
     return "";
   }
 
+  // function removeCookie(tabs) {
+  //   let removing = browser.cookies.remove({
+  //     url: tabs[0].url,
+  //     name: "favorite-color"
+  //   });
+  //   removing.then(onRemoved, onError);
+  // }
+
   export {getCookie}

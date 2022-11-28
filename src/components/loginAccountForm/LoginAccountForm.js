@@ -6,11 +6,13 @@ import Box from '@mui/material/Box';
 
 import Button from '../button/Button';
 
-const LoginAccountForm = ({setOpenLoginModal, setLoggedIn}) => {
+const LoginAccountForm = ({setOpenLoginModal, setLoggedIn, setLoginMessage}) => {
 
     const [username, setUsername] = useState('');
     const [usernameError, setUsernameError] = useState(false);
-    const [password, setPassword] = useState('');
+    const [password, setPassword] = useState('');    
+    const [formMessage, setFormMessage] = useState('');
+
 
     // on unfocus validate username
     const validateUsername = () => {
@@ -39,19 +41,29 @@ const LoginAccountForm = ({setOpenLoginModal, setLoggedIn}) => {
         .then(response => response.json())
         .then(data => {
 
-            setUsername('');
-            setPassword('');
-            setOpenLoginModal(false);
-            
-            // show toast that user was successfully logged in
-            // TODO 
-            
-            // save token to cookies
-            document.cookie = 'accessToken=' + data.accessToken
+            if(data.status === 'error'){
 
-            // set loggedin to true 
-            setLoggedIn(true);
-            
+                if(data.message === 'No data returned from the query.'){
+                    setFormMessage('No user with this email and password exists.')
+                } else {
+                    setFormMessage(data.message);
+                }
+
+            } else {
+                setUsername('');
+                setPassword('');
+                setOpenLoginModal(false);
+                setLoginMessage('You have logged in!')
+                
+                // show toast that user was successfully logged in
+                // TODO 
+                
+                // save token to cookies
+                document.cookie = 'accessToken=' + data.accessToken
+    
+                // set loggedin to true 
+                setLoggedIn(true);
+            }  
         }).catch(error => {
             console.log(error);
         })
@@ -69,6 +81,11 @@ const LoginAccountForm = ({setOpenLoginModal, setLoggedIn}) => {
             <Typography className="loginModal__title" id="modal-modal-title" variant="h6" component="h2">
                 Please Log In
             </Typography>
+            {formMessage && 
+                <div className="form__errorText" style={{"color" : "red"}}>
+                    {formMessage}
+                </div>
+            }
             <TextField 
                 id="outlined-basic" 
                 label="Username" 
