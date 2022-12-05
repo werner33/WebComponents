@@ -1,11 +1,10 @@
 @import '../../styleResources/colors.scss';
 
 .emailSubscriptionForm {
-    margin: 100px auto;
-    border: 1px solid $primary;
+    margin: 100px auto 50px;
+    border-top: 1px solid $primary;
+    border-bottom: 1px solid $primary;
     padding: 40px 25px;
-    border-radius: 7px;
-    max-width: 520px;
     background-color: rgba(125, 132, 178, 0.15);
     text-align: center;
     font-family: arial;
@@ -29,26 +28,20 @@
       flex-wrap: wrap;
       margin-bottom: 8px;
       input {
-        width: 100%;
+        width: 350px;
         padding: 15px;
         border: $primary 1px solid;
         border-radius: 3px;
+        margin: 0 auto;
       }
     }
-  
-    &__submitButton {
-      width: 100%;
-      padding: 15px;
-      color: white;
-      border: none;
-      border-radius: 3px;
-      font-size: 1.1em;
-      text-decoration: uppercase;
-      background: $primary;
-      background: linear-gradient(
-        rgba(143, 166, 203, 1) 0%,
-        rgba(125, 132, 178, 1) 100%
-      );
+    &__buttonContainer {
+      width: 380px;
+      margin: 0 auto;
+    }
+
+    &__errorMessage {
+      color: red;
     }
   }
   

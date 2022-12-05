@@ -1,0 +1,27 @@
+@import '../../styleResources/colors.scss';
+
+.footer {
+    background-color: $primary;
+    height: 200px;
+    padding: 30px;
+    &__content {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 1fr 1fr 2fr;
+        & > * {
+            text-align: center;
+        }
+    }
+
+    &__columnTitle {
+        font-weight: 600;
+        color: white;
+        margin-bottom: 15px;
+    }
+
+    &__listItem {
+        color: $highlight;
+        padding-bottom: 8px;
+    }
+}

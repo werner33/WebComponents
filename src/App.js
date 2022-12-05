@@ -18,14 +18,16 @@ import EmailSubscriptionForm from './components/emailSubscriptionForm/EmailSupsc
 import ProductCards from './components/productCards/ProductCards';
 import ArticleContainer from './components/articleContainer/ArticleContainer';
 import StopwatchDisplay from "./components/stopwatchDisplay/StopwatchDisplay";
+import UploadImageToS3WithReactS3 from "./components/uploadImageToS3WithReactS3/UploadImageToS3WithReactS3";
 import LoginModal from "./components/loginModal/LoginModal";
 import AccountList from "./components/accountList/AccountList";
+import Footer from "./components/footer/Footer";
 
 //PAGES
 import Cart from "./pages/Cart";
+import SingleProduct from "./pages/SingleProduct";
 
 import './App.css';
-
 
 function App() {
 
@@ -53,8 +55,10 @@ function App() {
         }
         <Routes>
           <Route path="/cart" element={<Cart />} />
+          <Route path="/products/:id" element={<SingleProduct />} />
           <Route path="/accounts" element={<AccountList />} /> 
           <Route path="/stopwatch" element={<StopwatchDisplay />} />
+          <Route path="/upload" element={<UploadImageToS3WithReactS3 />} />
           <Route path="/" element={
             <SplitScreen>
               <ProductCards title="Awesome Products" />
@@ -63,6 +67,7 @@ function App() {
           } />
         </Routes>
         <EmailSubscriptionForm />
+        <Footer />
       </div>
     </Router>
   );

@@ -52,7 +52,7 @@ const Navbar = ({setOpenLoginModal, loggedIn, setLoggedIn}) => {
                 }} 
               />}
             </div>
-            <div className="navbar__mobileMenu"  style={{'right' : toggleMenu ? '0px' : '-181px'}}>
+            <div className="navbar__mobileMenu" style={{'right' : toggleMenu ? '0px' : '-181px'}}>
               <MobileMenuItem text="Resources" path="resources">
                 <div className="submenuItem">High School</div>
                 <div className="submenuItem">College</div>

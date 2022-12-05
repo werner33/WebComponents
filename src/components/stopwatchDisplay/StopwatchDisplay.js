@@ -11,14 +11,14 @@ let stopwatch = new Stopwatch();
 
 const StopwatchDisplay = () => {
 
-  const [elapsedTime, setElapsedTime] = useState(0);
+  const [elapsedTime, setElapsedTime] = useState('00:00:00:0');
   let intervalId;
 
   const startTime = () => {
     stopwatch.start();
     
     let intervalInstance = setInterval(function(){
-      setElapsedTime(stopwatch.getElapsedTime())
+      setElapsedTime(stopwatch.getFormattedTime())
     }, 100)
 
     intervalId = intervalInstance
@@ -39,7 +39,7 @@ const StopwatchDisplay = () => {
   return (
     <div className="stopwatch">
         <div className="stopwatch__title">Stopwatch</div>
-        <div className="stopwatch__elapsedTime">{(elapsedTime/1000).toFixed(1)}</div>
+        <div className="stopwatch__elapsedTime" data-testid="currTime">{elapsedTime}</div>
         <div className="stopwatch__buttons">
             <Button onClick={startTime} text="Start"/>
             <Button onClick={stopTime} text="Stop"/>
