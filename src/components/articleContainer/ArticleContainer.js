@@ -25,7 +25,7 @@ const ArticleContainer = () => {
             <div className="article">
                 <div className="article__number">3</div>
                 <div className="article__title">
-                    Documents recovered at Mar-a-Lago were among governments most classNameified, letter shows
+                    Documents recovered at Mar-a-Lago were among governments most classified, letter shows
                 </div>
             </div>
             <div className="article">
