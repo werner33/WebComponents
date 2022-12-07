@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
+import { Link } from 'react-router-dom';
 
-// import LoopIcon from '@mui/icons-material/Loop';
 import Button from '../button/Button';
 
 import './ProductCard.scss';
@@ -15,6 +15,9 @@ const ProductCard  = ({product}) => {
     const formattedPrice = `$${price}.00`;
 
     const handleAddToCart = (e) => {
+
+        e.preventDefault();
+
         if(inCart){
             return;
         } else {
@@ -25,21 +28,24 @@ const ProductCard  = ({product}) => {
     }
     
     return (
-        <div className="productCard">
-            <div className="productCard__image">
-                <img 
-                    // src="https://media2.fdncms.com/eastbayexpress/imager/u/zoom/4971745/legalize-ac04f79b8be81a15.jpg"
-                    src="https://images.dutchie.com/749b5083f43e25c1ff95278d91b289d9?auto=format&fit=fill&fill=solid&fillColor=%23fff&__typename=ImgixSettings&ixlib=react-9.0.2&h=175&w=175&q=75&dpr=1"
-                    alt="A short description of the image."/>
-            </div>
-                <div className="productCard__info">
-                <div className="productCard__title"> 
-                    {title}
+       
+            <div className="productCard">
+                 <Link to={`/products/${id}`}>
+                <div className="productCard__image">
+                    <img 
+                        src="https://images.dutchie.com/749b5083f43e25c1ff95278d91b289d9?auto=format&fit=fill&fill=solid&fillColor=%23fff&__typename=ImgixSettings&ixlib=react-9.0.2&h=175&w=175&q=75&dpr=1"
+                        alt="A short description of the image."/>
                 </div>
-                <div className="productCard__price">{formattedPrice}</div>
-                </div>
-           <Button text={buttonText} loading={loading} handleclick={handleAddToCart} />
+                    <div className="productCard__info">
+                    <div className="productCard__title"> 
+                        {title}
+                    </div>
+                    <div className="productCard__price">{formattedPrice}</div>
+                    </div>
+            <Button text={buttonText} loading={loading} onClick={handleAddToCart} />
+            </Link>
         </div>
+      
     )
 }
 

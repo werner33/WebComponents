@@ -41,5 +41,17 @@ export class Stopwatch {
       }
     
     }
+
+    getFormattedTime () { 
+      let elapsedTime = this.getElapsedTime();
+      let hours = Math.floor(elapsedTime / 3600000).toString().padStart(2, '0');
+      elapsedTime = elapsedTime % 3600000;
+      let minutes = Math.floor(elapsedTime / 60000).toString().padStart(2, '0');
+      elapsedTime = elapsedTime % 60000;
+      let seconds = Math.floor(elapsedTime / 1000).toString().padStart(2, '0');
+      elapsedTime = elapsedTime % 1000;
+      let milliseconds = Math.floor(elapsedTime / 100).toString();
+      return `${hours}:${minutes}:${seconds}:${milliseconds}`;
+    }
   
   }
