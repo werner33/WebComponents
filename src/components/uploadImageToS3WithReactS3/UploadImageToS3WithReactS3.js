@@ -1,57 +1,53 @@
 import React , {useState} from 'react';
 import { uploadFile } from 'react-s3';
 
+import './UploadImageToS3WithReactS3.scss';
+
 window.Buffer = window.Buffer || require("buffer").Buffer;
 
 
 //TODO:
-// Styling
+// create a add product route
 // incorporate into a component
+// Styling
 
-// const S3_BUCKET ='YOUR_BUCKET_NAME';
-// const REGION ='YOUR_REGION_NAME';
-// const ACCESS_KEY ='YOUR_ACCESS_KEY';
-// const SECRET_ACCESS_KEY ='YOUR_SECRET_ACCESS_KEY';
+const UploadImageToS3WithReactS3 = ({selectedFile, setSelectedFile}) => {
 
-
-// create a route to serve this from the backend 
-const config = {
-    bucketName: 'winterecommerce2022',
-    region: 'us-east-1',
-    accessKeyId: 'AKIA5TTCWKP6NNRJE2GK',
-    secretAccessKey: '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',
-}
-
-const UploadImageToS3WithReactS3 = () => {
-
-    const [selectedFile, setSelectedFile] = useState(null);
+    // const [selectedFile, setSelectedFile] = useState(null);
 
     const handleFileInput = (e) => {
         setSelectedFile(e.target.files[0]);
     }
 
-    const handleUpload = async (file) => {
-        uploadFile(file, config)
-            .then(data =>{
+    // const handleUpload = async (file) => {
 
-                // give indication that the upload was successful
-                console.log(data);
+        // fetch awsCredentials
+        // const response = await fetch('http://localhost:9000/awscredentials')
+        // const awsCredentials = await response.json();
 
-                // save this url to the database (product table)
+    //     uploadFile(file, awsCredentials)
+    //         .then(data =>{
 
-                // reset hook to null
-            })
-            .catch(err => {
-                // give indication that the upload was unsuccessful
-                console.error(err)
-            })
-    }
+    //             // give indication that the upload was successful
+    //             console.log(data);
 
-    return <div>
-        <div>React S3 File Upload</div>
-        <input type="file" onChange={handleFileInput}/>
-        <button onClick={() => handleUpload(selectedFile)}> Upload to S3</button>
-    </div>
+    //             // save this url to the database (product table)
+
+    //             // reset hook to null
+    //         })
+    //         .catch(err => {
+    //             // give indication that the upload was unsuccessful
+    //             console.error(err)
+    //         })
+    // }
+
+    return (
+        <div className="uploadImageToS3WithReactS3">
+            <div className="uploadImageToS3WithReactS3__title">Select a Product Image</div>
+            
+            <input type="file" onChange={handleFileInput}/>
+        </div>
+    )
 }
 
 export default UploadImageToS3WithReactS3;
