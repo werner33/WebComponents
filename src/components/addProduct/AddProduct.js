@@ -12,20 +12,6 @@ import './AddProduct.scss';
 
 window.Buffer = window.Buffer || require("buffer").Buffer;
 
-// title 
-
-// form
- // title
- // price
- // image upload
-
-// submit button
-
-    // success
-        // show success message
-    // error
-        // show error message
-
 const AddProduct = () => {
 
     const [title, setTitle] = useState('');

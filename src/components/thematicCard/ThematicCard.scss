@@ -1,0 +1,32 @@
+.thematicCard {
+    width: 330px;
+    margin: 20px;
+    font-family: Brandon Text, Arial, sans-serif;
+  
+    &__image {
+      width: inherit;
+      cursor: pointer;
+    }
+  
+    &__title {
+      font-weight: 600;
+      font-size: 1.2em;
+      letter-spacing: 0.03rem;
+      margin: 8px 0;
+    }
+  
+    &__text {
+      margin-bottom: 15px;
+      letter-spacing: 0.03rem;
+      font-size: 0.95em;
+    }
+  
+    &__callToAction {
+      cursor: pointer;
+      border-bottom: 1px solid black;
+      &:hover {
+        border-bottom: 2px solid black;
+      }
+    }
+  }
+  

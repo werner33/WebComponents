@@ -44,4 +44,13 @@
       color: red;
     }
   }
+
+  @media screen and (max-width: 440px) {
+    .emailSubscriptionForm {
+       
+      &__buttonContainer {
+        width: 100%;
+      }
+    }
+}
   

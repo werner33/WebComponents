@@ -17,10 +17,12 @@ import Navbar from './components/navbar/Navbar';
 import EmailSubscriptionForm from './components/emailSubscriptionForm/EmailSupscriptionForm';
 import ProductCards from './components/productCards/ProductCards';
 import ArticleContainer from './components/articleContainer/ArticleContainer';
+import PromotionsList from "./components/promotionsList/PromotionsList";
 import StopwatchDisplay from "./components/stopwatchDisplay/StopwatchDisplay";
 import LoginModal from "./components/loginModal/LoginModal";
 import AccountList from "./components/accountList/AccountList";
 import AddProduct from "./components/addProduct/AddProduct";
+import ThematicCard from "./components/thematicCard/ThematicCard";
 import Footer from "./components/footer/Footer";
 
 //PAGES
@@ -62,7 +64,11 @@ function App() {
           <Route path="/" element={
             <SplitScreen>
               <ProductCards title="Awesome Products" />
-              <ArticleContainer />
+              <div>
+                <ThematicCard url='/stopwatch' />
+                <PromotionsList />
+                <ArticleContainer />
+              </div>
             </SplitScreen>
           } />
         </Routes>

@@ -2,8 +2,9 @@
 
 .articleContainer {
     border: 1px #ccc solid;
-    width: 300px;
+    width: 330px;
     margin: 0 auto;
+    border-radius: 5px;
     
     &__title {
       text-transform: uppercase;
